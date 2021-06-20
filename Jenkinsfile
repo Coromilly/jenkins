@@ -25,29 +25,30 @@ pipeline {
         // }
         stage('Upload Files') {
             steps {
-                echo 'Uoloading files'
-                s3Upload consoleLogLevel: 'INFO', 
-                dontSetBuildResultOnFailure: false, 
-                dontWaitForConcurrentBuildCompletion: false, 
-                entries: 
-                [
-                    [bucket: 'levdansky-bucket-from-jenkins', 
-                    excludedFile: '.git, Jenkinsfile', 
-                    flatten: false, 
-                    gzipFiles: false, 
-                    keepForever: false, 
-                    managedArtifacts: false, 
-                    noUploadOnFailure: false, 
-                    selectedRegion: 'us-east-1', 
-                    showDirectlyInBrowser: false, 
-                    sourceFile: '', 
-                    storageClass: 'STANDARD', 
-                    uploadFromSlave: false, 
-                    useServerSideEncryption: false]
-                ], 
-                pluginFailureResultConstraint: 'FAILURE', 
-                profileName: '', 
-                userMetadata: []            
+                echo 'Uploading files'
+                // s3Upload consoleLogLevel: 'INFO', 
+                // dontSetBuildResultOnFailure: false, 
+                // dontWaitForConcurrentBuildCompletion: false, 
+                // entries: 
+                // [
+                //     [bucket: 'levdansky-bucket-from-jenkins', 
+                //     excludedFile: '.git, Jenkinsfile', 
+                //     flatten: false, 
+                //     gzipFiles: false, 
+                //     keepForever: false, 
+                //     managedArtifacts: false, 
+                //     noUploadOnFailure: false, 
+                //     selectedRegion: 'us-east-1', 
+                //     showDirectlyInBrowser: false, 
+                //     sourceFile: '', 
+                //     storageClass: 'STANDARD', 
+                //     uploadFromSlave: false, 
+                //     useServerSideEncryption: false]
+                // ], 
+                // pluginFailureResultConstraint: 'FAILURE', 
+                // profileName: '', 
+                // userMetadata: []
+                            s3Upload acl: 'Private', bucket: 'levdansky-bucket-from-jenkins', cacheControl: '', excludePathPattern: '.git Jenkinsfile', file: '', includePathPattern: '', metadatas: [''], redirectLocation: '', sseAlgorithm: '', tags: '', text: '', workingDir: ''
             }
         }
     }
