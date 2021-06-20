@@ -14,7 +14,7 @@ pipeline {
                     ]
                 )
                 sh "pwd"
-                sh "ls- la"                
+                sh "ls -la"                
             }
         }
     }
