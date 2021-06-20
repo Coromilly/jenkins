@@ -26,8 +26,7 @@ pipeline {
         stage('Upload Files') {
             steps {
                 echo 'Uploading files'
-                s3Upload 
-                consoleLogLevel: 'WARNING', 
+                s3Upload consoleLogLevel: 'WARNING', 
                 dontSetBuildResultOnFailure: false, 
                 dontWaitForConcurrentBuildCompletion: false, 
                 entries: 
@@ -39,7 +38,7 @@ pipeline {
                             gzipFiles: false, 
                             keepForever: false, 
                             managedArtifacts: false, 
-                            noUploadOnFailure: false, 
+                            noUploadOnFailure: true, 
                             selectedRegion: 'us-east-1', 
                             showDirectlyInBrowser: false, 
                             sourceFile: '', 
