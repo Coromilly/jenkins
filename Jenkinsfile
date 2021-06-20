@@ -17,16 +17,16 @@ pipeline {
                 sh "ls -la"                
             }
         }
-        stage('Create bucket') {
-            steps {
-                echo 'Creating Bucket'
-                sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
-                sh 'sudo apt install unzip'
-                sh 'unzip awscliv2.zip'
-                sh 'sudo ./aws/install'
-                sh "aws s3api create-bucket --bucket levdansky-bucket-from-jenkins"               
-            }
-        }
+//         stage('Create bucket') {
+//             steps {
+//                 echo 'Creating Bucket'
+//                 sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
+//                 sh 'sudo apt install unzip'
+//                 sh 'unzip awscliv2.zip'
+//                 sh 'sudo ./aws/install'
+//                 sh "aws s3api create-bucket --bucket levdansky-bucket-from-jenkins"               
+//             }
+//         }
         stage('Upload Files') {
             steps {
                 echo 'Uploading files'
