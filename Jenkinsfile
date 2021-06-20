@@ -48,7 +48,18 @@ pipeline {
                 // pluginFailureResultConstraint: 'FAILURE', 
                 // profileName: '', 
                 // userMetadata: []
-                            s3Upload acl: 'Private', bucket: 'levdansky-bucket-from-jenkins', cacheControl: '', excludePathPattern: '.git Jenkinsfile', file: '', includePathPattern: '', metadatas: [''], redirectLocation: '', sseAlgorithm: '', tags: '', text: '', workingDir: ''
+                s3Upload 
+                    acl: 'Private', 
+                    bucket: 'levdansky-bucket-from-jenkins', 
+                    cacheControl: '', 
+                    excludePathPattern: '.git Jenkinsfile', 
+                    file: '', 
+                    metadatas: [''], 
+                    redirectLocation: '', 
+                    sseAlgorithm: '', 
+                    tags: '', 
+                    text: '', 
+                    workingDir: ''
             }
         }
     }
