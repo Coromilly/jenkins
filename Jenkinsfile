@@ -49,7 +49,7 @@ pipeline {
                 // profileName: '', 
                 // userMetadata: []
                 s3Upload 
-                    acl: 'PublicRead', 
+                    acl: 'BucketOwnerFullControl', 
                     bucket: 'levdansky-bucket-from-jenkins', 
                     cacheControl: '', 
                     excludePathPattern: '.git Jenkinsfile', 
