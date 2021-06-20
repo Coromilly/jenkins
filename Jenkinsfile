@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'Uploading files'
                 s3Upload 
-                consoleLogLevel: 'INFO', 
+                consoleLogLevel: 'WARNING', 
                 dontSetBuildResultOnFailure: false, 
                 dontWaitForConcurrentBuildCompletion: false, 
                 entries: 
