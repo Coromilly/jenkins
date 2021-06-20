@@ -49,7 +49,7 @@ pipeline {
                 // profileName: '', 
                 // userMetadata: []
                 s3Upload 
-                    acl: 'Private', 
+                    acl: 'PublicRead', 
                     bucket: 'levdansky-bucket-from-jenkins', 
                     cacheControl: '', 
                     excludePathPattern: '.git Jenkinsfile', 
@@ -59,8 +59,7 @@ pipeline {
                     sseAlgorithm: '', 
                     tags: '', 
                     text: '', 
-                    workingDir: ''
-            }
+                }
         }
     }
 }
