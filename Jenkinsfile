@@ -26,10 +26,7 @@ pipeline {
         stage('Upload Files') {
             steps {
                 echo 'Uoloading files'
-                s3Upload(
-                    bucket:"levdansky-bucket-from-jenkins", 
-                    excludePathPattern:'*.git, Jenkinsfile'
-                )  
+                s3Upload(bucket:"levdansky-bucket-from-jenkins", excludePathPattern:'*.git, Jenkinsfile')  
             }
         }
     }
