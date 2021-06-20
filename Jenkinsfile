@@ -22,13 +22,14 @@ pipeline {
         //         echo 'Creating Bucket'
         //         sh "aws s3api create-bucket --bucket levdansky-bucket-from-jenkins"               
         //     }
-        }
+        // }
         stage('Upload Files') {
             steps {
                 echo 'Uoloading files'
                 s3Upload(
                     bucket:"levdansky-bucket-from-jenkins", 
-                    excludePathPattern:'*.git, Jenkinsfile')  
+                    excludePathPattern:'*.git, Jenkinsfile'
+                )  
             }
         }
     }
