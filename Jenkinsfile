@@ -17,12 +17,12 @@ pipeline {
                 sh "ls -la"                
             }
         }
-        // stage('Create bucket') {
-        //     steps {
-        //         echo 'Creating Bucket'
-        //         sh "aws s3api create-bucket --bucket levdansky-bucket-from-jenkins"               
-        //     }
-        // }
+        stage('Create bucket') {
+            steps {
+                echo 'Creating Bucket'
+                sh "aws s3api create-bucket --bucket levdansky-bucket-from-jenkins"               
+            }
+        }
         stage('Upload Files') {
             steps {
                 echo 'Uploading files'
