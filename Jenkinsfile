@@ -26,40 +26,32 @@ pipeline {
         stage('Upload Files') {
             steps {
                 echo 'Uploading files'
-                s3Upload consoleLogLevel: 'INFO', 
+                s3Upload 
+                consoleLogLevel: 'INFO', 
                 dontSetBuildResultOnFailure: false, 
                 dontWaitForConcurrentBuildCompletion: false, 
                 entries: 
-                [
-                    [bucket: 'levdansky-bucket-from-jenkins', 
-                    excludedFile: '.git, Jenkinsfile', 
-                    flatten: false, 
-                    gzipFiles: false, 
-                    keepForever: false, 
-                    managedArtifacts: false, 
-                    noUploadOnFailure: false, 
-                    selectedRegion: 'us-east-1', 
-                    showDirectlyInBrowser: false, 
-                    sourceFile: '', 
-                    storageClass: 'STANDARD', 
-                    uploadFromSlave: false, 
-                    useServerSideEncryption: false]
-                ], 
+                    [
+                        [
+                            bucket: 'levdansky-bucket-from-jenkins', 
+                            excludedFile: '.git Jenkinsfile', 
+                            flatten: false, 
+                            gzipFiles: false, 
+                            keepForever: false, 
+                            managedArtifacts: false, 
+                            noUploadOnFailure: false, 
+                            selectedRegion: 'us-east-1', 
+                            showDirectlyInBrowser: false, 
+                            sourceFile: '', 
+                            storageClass: 'STANDARD', 
+                            uploadFromSlave: false, 
+                            useServerSideEncryption: false
+                        ]
+                    ], 
                 pluginFailureResultConstraint: 'FAILURE', 
-//                 profileName: '', 
+                profileName: 'S3_jenkins', 
                 userMetadata: []
-//                 s3Upload 
-//                     acl: 'BucketOwnerFullControl', 
-//                     bucket: 'levdansky-bucket-from-jenkins', 
-//                     cacheControl: '', 
-//                     excludePathPattern: '.git Jenkinsfile', 
-//                     file: '', 
-//                     metadatas: [''], 
-//                     redirectLocation: '', 
-//                     sseAlgorithm: '', 
-//                     tags: '', 
-//                     text: '', 
-                }
+            }
         }
     }
 }
