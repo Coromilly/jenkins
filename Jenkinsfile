@@ -37,7 +37,7 @@ pipeline {
                     [
                         [
                             bucket: 'levdansky-bucket-from-jenkins', 
-                            excludedFile: '.git Jenkinsfile', 
+                            excludedFile: '.git, Jenkinsfile', 
                             flatten: false, 
                             gzipFiles: false, 
                             keepForever: false, 
