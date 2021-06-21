@@ -15,10 +15,45 @@ pipeline {
                 )                               
             }
         }
+        stage('Backup database') {
+            steps {
+                echo 'Make backup'
+                sh 'mysqldump -uroot -p1991Darktranqu1ll1ty1991 shop > backup.sql'             
+            }
+        }
+        stage('Upload backup') {
+            steps {
+                echo 'Uploading backup'
+                s3Upload consoleLogLevel: 'WARNING', 
+                dontSetBuildResultOnFailure: false, 
+                dontWaitForConcurrentBuildCompletion: false, 
+                entries: 
+                    [
+                        [
+                            bucket: 'levdansky-bucket-from-jenkins', 
+                            excludedFile: '.git, Jenkinsfile', 
+                            flatten: false, 
+                            gzipFiles: false, 
+                            keepForever: false, 
+                            managedArtifacts: false, 
+                            noUploadOnFailure: true, 
+                            selectedRegion: 'us-east-1', 
+                            showDirectlyInBrowser: false, 
+                            sourceFile: 'backup.sql', 
+                            storageClass: 'STANDARD', 
+                            uploadFromSlave: false, 
+                            useServerSideEncryption: false
+                        ]
+                    ], 
+                pluginFailureResultConstraint: 'FAILURE', 
+                profileName: 'S3_jenkins', 
+                userMetadata: []
+            }
+        }
         stage('Get query') {
             steps {
                 echo 'Getting query'
-                sh 'mysql -uroot -p1991Darktranqu1ll1ty1991 "shop" < "select.txt"'             
+                sh 'mysql -uroot -p1991Darktranqu1ll1ty1991 shop < select.txt > result.txt'             
             }
         }
         stage('Upload Files') {
@@ -39,7 +74,7 @@ pipeline {
                             noUploadOnFailure: true, 
                             selectedRegion: 'us-east-1', 
                             showDirectlyInBrowser: false, 
-                            sourceFile: '', 
+                            sourceFile: 'result.txt', 
                             storageClass: 'STANDARD', 
                             uploadFromSlave: false, 
                             useServerSideEncryption: false
