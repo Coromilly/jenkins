@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    environment {
+    MYSQL_CREDS = credentials('3')
 
     stages {
         stage('Pull Repository') {
@@ -18,7 +20,7 @@ pipeline {
         stage('Backup database') {
             steps {
                 echo 'Make backup'
-                sh 'mysqldump -uroot -p1991Darktranqu1ll1ty1991 shop > backup.sql'             
+                sh 'mysqldump -u$MYSQL_CREDS_USR -p$MYSQL_CREDS_PSW shop > backup.sql'             
             }
         }
         stage('Upload backup') {
