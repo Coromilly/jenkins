@@ -1,1 +1,1 @@
-select * from product where price>300;
+select * from product where price>400;
