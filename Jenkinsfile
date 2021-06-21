@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-    MYSQL_CREDS = credentials('3')
+        MYSQL_CREDS = credentials('3')
+    }
 
     stages {
         stage('Pull Repository') {
