@@ -1,0 +1,7 @@
+flask
+sys
+flask_restful
+fileinput
+mysql.connector
+datetime
+json
