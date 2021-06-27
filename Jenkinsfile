@@ -18,13 +18,13 @@ pipeline {
         stage('Build image') {
             steps {
                 echo 'Build image'
-                sh 'sudo docker build -t coromilly/task4 .'             
+                sh 'docker build -t coromilly/task4 .'             
             }
         }
         stage('Push image') {
             steps {
                 echo 'Pushing image to dockerhub'
-                sh 'sudo docker push coromilly/task4'             
+                sh 'docker push coromilly/task4'             
             }
         }
     }
