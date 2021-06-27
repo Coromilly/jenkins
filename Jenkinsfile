@@ -24,7 +24,9 @@ pipeline {
         stage('Push image') {
             steps {
                 echo 'Pushing image to dockerhub'
-                sh 'docker push coromilly/task4'             
+                withDockerRegistry([credentialsId: '10', url: '']) {
+                    sh 'docker push coromilly/task4'
+                }             
             }
         }
     }
