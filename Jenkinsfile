@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Pull Repository') {
+        stage('Pull repository') {
             steps {
                 echo 'Pulling repo'
                 checkout(
