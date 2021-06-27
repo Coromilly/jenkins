@@ -1,5 +1,4 @@
 flask
-sys
 flask_restful
 fileinput
 mysql.connector
