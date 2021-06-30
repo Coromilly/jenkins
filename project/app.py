@@ -3,14 +3,12 @@ import fileinput
 from flask import Flask, request
 from flask_restful import Resource, Api
 from format_date import format_date, check_date
-from login import get_login_info, create_connection
+from login import create_connection
 import sys
 
 app = Flask(__name__)
 api = Api(app)
-file_path = sys.argv[1:][0]
-info = get_login_info(file_path)
-connection = create_connection(*info)
+connection = create_connection()
 
 def get_students():
     students = []
