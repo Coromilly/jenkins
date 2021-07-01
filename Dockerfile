@@ -1,5 +1,5 @@
 FROM python:3.8-slim-buster
-ARG host_name=test
+ARG host_name
 ARG user_name
 ARG user_password
 ARG database_name
