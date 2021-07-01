@@ -8,6 +8,12 @@ import sys
 
 app = Flask(__name__)
 api = Api(app)
+print (sys.argv[0])
+print (sys.argv[1])
+print (sys.argv[2])
+print (sys.argv[3])
+print (sys.argv[4])
+
 connection = create_connection()
 
 def get_students():
