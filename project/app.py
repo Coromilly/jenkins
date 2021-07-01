@@ -4,7 +4,7 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 from format_date import format_date, check_date
 from login import create_connection
-import sys
+import os
 
 app = Flask(__name__)
 api = Api(app)
