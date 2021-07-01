@@ -8,6 +8,12 @@ import sys
 
 app = Flask(__name__)
 api = Api(app)
+
+print (os.getenv("HOST"))
+print (os.getenv("NAME"))
+print (os.getenv("PASSWORD"))
+print (os.getenv("DATABASE"))
+
 connection = create_connection()
 
 def get_students():
